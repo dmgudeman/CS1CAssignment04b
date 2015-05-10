@@ -62,7 +62,7 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
    public boolean collectGarbage()
    {
       int oldSizeHard = mSizeHard;
-      collectGarbage(mRoot); 
+      mRoot = collectGarbage(mRoot); 
       return (mSizeHard != oldSizeHard);
    }
    
@@ -110,8 +110,7 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
       if (root == null)
       {
          return new FHlazySTNode<E>(x, null, null, false);
-      }
-      
+      } 
       compareResult = x.compareTo(root.data); 
       if ( compareResult < 0 )
          root.lftChild = insert(root.lftChild, x);
@@ -127,8 +126,7 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
          mSize--;
          mSizeHard--;
          return root;
-      }
-      
+      }     
       return root;
    }
      
@@ -156,9 +154,9 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
       if (root == null)
        return null;
       
-      root = removeHard(root);
-      root.lftChild = collectGarbage(removeHard(root.lftChild));
-      root.rtChild = collectGarbage(removeHard(root.rtChild));
+     root = removeHard(root);
+     root.lftChild  = collectGarbage(removeHard(root.lftChild));
+     root.rtChild =  collectGarbage(removeHard(root.rtChild));
          return root;
    }
 
@@ -172,39 +170,30 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
 
       else if (root.lftChild != null && root.rtChild != null)
       {   
-         FHlazySTNode<E> tempNode = findMin(root.rtChild);
-         if (tempNode.deleted ==true)
-         { 
-            tempNode = null;
-            return removeHard(root);
-         }
-         root.data = root.rtChild.data;
+         remove(findMin(root.rtChild).data);
+         mSize++;
+         root.data = findMin(root.rtChild).data;
          root.deleted = false;
-         root.rtChild.deleted = true;       
       }
       else if (root.lftChild == null && root.rtChild != null)
       {
-         root.data = root.rtChild.data;
-         root.deleted = root.rtChild.deleted;
-         root.rtChild.deleted = true;            
+         root = root.rtChild;
+//         root.rtChild = null;
+         mSizeHard--;
       }
       else if (root.rtChild == null && root.lftChild != null)
       {
-         root.data = root.lftChild.data;
-         root.deleted = root.lftChild.deleted;;
-         root.lftChild.deleted = true;        
+         root = root.lftChild;
+//         root.lftChild = null;
+         mSizeHard--;
       }
       else if(root.rtChild == null && root.lftChild == null)
       {
          mSizeHard--;
          root = null;
-         return null;   
+         return null;        
       }
-             
-
-    return root;
-      
-      
+    return root;    
    }
    
    protected <F extends Traverser<? super E>> 
@@ -267,7 +256,6 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
       return mSizeHard;
    }
 }
-
 
 //4B
 class FHlazySTNode<E extends Comparable< ? super E > >
