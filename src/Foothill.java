@@ -1,14 +1,13 @@
 
 
-
 import cs_1c.*;
 
 class PrintObject<E> implements Traverser<E>
 {
-public void visit(E x)
-{
-   System.out.print( x + " ");
-}
+   public void visit(E x)
+   {
+      System.out.print( x + " ");
+   }
 };
 
 //------------------------------------------------------
@@ -250,95 +249,115 @@ public static void main(String[] args) throws Exception
    System.out.println( "\ntree 1 size: " + searchTree.size() 
          + "  Hard size: " + searchTree.sizeHard() );
    
-   System.out.println("\nGARBAGE COLLECTION");
-   searchTree.collectGarbage();
-   searchTree.traverse(intPrinter);
-   System.out.println( "\ntree 1 size: " + searchTree.size() 
-         + "  Hard size: " + searchTree.sizeHard() );
+ //--------------------------Run-------------------------------------
+// Arggh! I wrote the program three times and still can't get it to perform 
+// correctly. The "k loop test" is diabolical! What core concept (or two) am
+// I missing? Thanks DG
+// 
    
-  
-   System.out.println( "\nAfter soft removal 9 " );
-   searchTree.remove(9);
-   searchTree.traverse(intPrinter);
-   System.out.println( "\ntree 1 size: " + searchTree.size() 
-      + "  Hard size: " + searchTree.sizeHard() );
-   
-   System.out.println( "\nAfter soft removal 10 " );
-   searchTree.remove(10);
-   searchTree.traverse(intPrinter);
-   System.out.println( "\ntree 1 size: " + searchTree.size() 
-      + "  Hard size: " + searchTree.sizeHard() );
-   
-   System.out.println( "\nAfter soft removal 22 " );
-   searchTree.remove(22);
-   searchTree.traverse(intPrinter);
-   System.out.println( "\ntree 1 size: " + searchTree.size() 
-      + "  Hard size: " + searchTree.sizeHard() );
-   
-   System.out.println( "\nAfter soft removal 30" );
-   searchTree.remove(30);
-   searchTree.traverse(intPrinter);
-   System.out.println( "\ntree 1 size: " + searchTree.size() 
-      + "  Hard size: " + searchTree.sizeHard() );
-   
-   System.out.println( "\nAfter soft removal 50 " );
-   searchTree.remove(50);
-   searchTree.traverse(intPrinter);
-   System.out.println( "\ntree 1 size: " + searchTree.size() 
-      + "  Hard size: " + searchTree.sizeHard() );
-   
-   System.out.println( "\nAfter soft removal 61 " );
-   searchTree.remove(61);
-   searchTree.traverse(intPrinter);
-   System.out.println( "\ntree 1 size: " + searchTree.size() 
-      + "  Hard size: " + searchTree.sizeHard() );
-   
-   System.out.println( "\nAfter soft removal 70 " );
-   searchTree.remove(70);
-   searchTree.traverse(intPrinter);
-   System.out.println( "\ntree 1 size: " + searchTree.size() 
-      + "  Hard size: " + searchTree.sizeHard() );
+//   System.out.println("\nGARBAGE COLLECTION");
+//   searchTree.collectGarbage();
+//   searchTree.traverse(intPrinter);
+//   System.out.println( "\ntree 1 size: " + searchTree.size() 
+//         + "  Hard size: " + searchTree.sizeHard() );
+//   
+//   System.out.println( "\nAfter soft removal 9 " );
+//   searchTree.remove(9);
+//   searchTree.traverse(intPrinter);
+//   System.out.println( "\ntree 1 size: " + searchTree.size() 
+//      + "  Hard size: " + searchTree.sizeHard() );
+//   
+//   System.out.println("\nGARBAGE COLLECTION");
+//   searchTree.collectGarbage();
+//   searchTree.traverse(intPrinter);
+//   System.out.println( "\ntree 1 size: " + searchTree.size() 
+//         + "  Hard size: " + searchTree.sizeHard() );
+//   
+//   System.out.println( "\nAfter soft removal 10 " );
+//   searchTree.remove(10);
+//   searchTree.traverse(intPrinter);
+//   System.out.println( "\ntree 1 size: " + searchTree.size() 
+//      + "  Hard size: " + searchTree.sizeHard() );
+//   
+//   System.out.println("\nGARBAGE COLLECTION");
+//   searchTree.collectGarbage();
+//   searchTree.traverse(intPrinter);
+//   System.out.println( "\ntree 1 size: " + searchTree.size() 
+//         + "  Hard size: " + searchTree.sizeHard() );
+//   
+//   System.out.println( "\nAfter soft removal 22 " );
+//   searchTree.remove(22);
+//   searchTree.traverse(intPrinter);
+//   System.out.println( "\ntree 1 size: " + searchTree.size() 
+//      + "  Hard size: " + searchTree.sizeHard() );
+//   
+//   System.out.println("\nGARBAGE COLLECTION");
+//   searchTree.collectGarbage();
+//   searchTree.traverse(intPrinter);
+//   System.out.println( "\ntree 1 size: " + searchTree.size() 
+//         + "  Hard size: " + searchTree.sizeHard() );
+//   
+//   System.out.println( "\nAfter soft removal 30" );
+//   searchTree.remove(30);
+//   searchTree.traverse(intPrinter);
+//   System.out.println( "\ntree 1 size: " + searchTree.size() 
+//      + "  Hard size: " + searchTree.sizeHard() );
+//   
+//   System.out.println( "\nAfter soft removal 50 " );
+//   searchTree.remove(50);
+//   searchTree.traverse(intPrinter);
+//   System.out.println( "\ntree 1 size: " + searchTree.size() 
+//      + "  Hard size: " + searchTree.sizeHard() );
+//   
+//   System.out.println( "\nAfter soft removal 61 " );
+//   searchTree.remove(61);
+//   searchTree.traverse(intPrinter);
+//   System.out.println( "\ntree 1 size: " + searchTree.size() 
+//      + "  Hard size: " + searchTree.sizeHard() );
+//   
+//   System.out.println( "\nAfter soft removal 70 " );
+//   searchTree.remove(70);
+//   searchTree.traverse(intPrinter);
+//   System.out.println( "\ntree 1 size: " + searchTree.size() 
+//      + "  Hard size: " + searchTree.sizeHard() );
+//  
+//   System.out.println("\nPRINT");
+//   searchTree.traverse(intPrinter);
+//   System.out.println("\nGARBAGE COLLECTION 1");
+//   searchTree.collectGarbage();
+//   searchTree.traverse(intPrinter);
+//   System.out.println( "\ntree 1 size: " + searchTree.size() 
+//         + "  Hard size: " + searchTree.sizeHard() );
+//  
+//   System.out.println("\nGARBAGE COLLECTION 2");
+//   searchTree.collectGarbage();
+//   System.out.println( "\ntree 1 size: " + searchTree.size() 
+//         + "  Hard size: " + searchTree.sizeHard() );
+//   searchTree.traverse(intPrinter);
+//   System.out.println("\nGARBAGE COLLECTION 3");
+//   searchTree.collectGarbage();
+//   System.out.println( "\ntree 1 size: " + searchTree.size() 
+//         + "  Hard size: " + searchTree.sizeHard() );
+//   searchTree.traverse(intPrinter);
+//   System.out.println("\nGARBAGE COLLECTION 4");
+//   System.out.println( "\ntree 1 size: " + searchTree.size() 
+//      + "  Hard size: " + searchTree.sizeHard() );
+//
+//   System.out.println("\nFIND MAX" + searchTree.findMax());
+//   System.out.println("\nFIND MIN" + searchTree.findMin());
+//   
+//   System.out.println( "\nRemove 50. " );
+//   searchTree.remove(50);
+//   searchTree.traverse(intPrinter);
+//   System.out.println( "\ntree 1 size: " + searchTree.size() 
+//      + "  Hard size: " + searchTree.sizeHard() );
+//
+//   System.out.println( "\nCollecting Garbage after remove 50. " );
+//   searchTree.collectGarbage();
+//   searchTree.traverse(intPrinter);
+//   searchTree.remove(61);
+//   searchTree.collectGarbage();
 
-   
-   System.out.println("\nPRINT");
-   searchTree.traverse(intPrinter);
-   System.out.println("\nGARBAGE COLLECTION 1");
-   searchTree.collectGarbage();
-   searchTree.traverse(intPrinter);
-   System.out.println( "\ntree 1 size: " + searchTree.size() 
-         + "  Hard size: " + searchTree.sizeHard() );
-   
-   System.out.println("\nGARBAGE COLLECTION 2");
-   searchTree.collectGarbage();
-   System.out.println( "\ntree 1 size: " + searchTree.size() 
-         + "  Hard size: " + searchTree.sizeHard() );
-   searchTree.traverse(intPrinter);
-   System.out.println("\nGARBAGE COLLECTION 3");
-   searchTree.collectGarbage();
-   System.out.println( "\ntree 1 size: " + searchTree.size() 
-         + "  Hard size: " + searchTree.sizeHard() );
-   searchTree.traverse(intPrinter);
-   System.out.println("\nGARBAGE COLLECTION 4");
-   System.out.println( "\ntree 1 size: " + searchTree.size() 
-      + "  Hard size: " + searchTree.sizeHard() );
-
-
-   System.out.println("\nFIND MAX" + searchTree.findMax());
-   System.out.println("\nFIND MIN" + searchTree.findMin());
-   
-   System.out.println( "\nRemove 50. " );
-   searchTree.remove(50);
-   searchTree.traverse(intPrinter);
-   System.out.println( "\ntree 1 size: " + searchTree.size() 
-      + "  Hard size: " + searchTree.sizeHard() );
-
-   System.out.println( "\nCollecting Garbage after remove 50. " );
-   searchTree.collectGarbage();
-   searchTree.traverse(intPrinter);
-   searchTree.remove(61);
-   searchTree.collectGarbage();
-   
-   System.out.println("ASSIGNMENT 4B");
-}
+   }
 
 }

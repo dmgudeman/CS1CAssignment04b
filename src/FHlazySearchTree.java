@@ -3,6 +3,9 @@ import cs_1c.*;
 
 import java.util.*;
 
+//David Gudeman
+//CS1C May 10, 2015
+//Assignment 4
 
 
 public class FHlazySearchTree<E extends Comparable< ? super E > >
@@ -48,8 +51,7 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
       mRoot = insert(mRoot, x);
       mSize++;
       mSizeHard++;
-      return (mSize != oldSize);
-      
+      return (mSize != oldSize);    
    }
   
    public boolean remove( E x )
@@ -76,11 +78,9 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
    {
       FHlazySearchTree<E> newObject = (FHlazySearchTree<E>)super.clone();
       newObject.clear();  // can't point to other's data
-
       newObject.mRoot = cloneSubtree(mRoot);
       newObject.mSize = mSize;
-      newObject.mSizeHard = mSizeHard;
-      
+      newObject.mSizeHard = mSizeHard;    
       return newObject;
    }
    
@@ -179,21 +179,18 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
       else if (root.lftChild == null && root.rtChild != null)
       {
          root = root.rtChild;
-//         root.rtChild = null;
          mSizeHard--;
       }
       else if (root.rtChild == null && root.lftChild != null)
       {
          root = root.lftChild;
-//         root.lftChild = null;
          mSizeHard--;
       }
       else if(root.rtChild == null && root.lftChild == null)
       {
          mSizeHard--;
-//         if (root != mRoot)
          root = null;
-         return root;
+        
              
       }
     return root;    
@@ -253,14 +250,13 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
       return (leftHeight > rightHeight)? leftHeight : rightHeight;
    }
    
-
    protected int sizeHard()
    {
       return mSizeHard;
    }
 }
 
-//4B
+//-------------------------------------------------------------------------
 class FHlazySTNode<E extends Comparable< ? super E > >
 {
    // use public access so the tree or other classes can access members 
@@ -269,7 +265,8 @@ class FHlazySTNode<E extends Comparable< ? super E > >
    public FHlazySTNode<E> myRoot;  // needed to test for certain error
    public boolean deleted;
 
-   public FHlazySTNode( E d, FHlazySTNode<E> lft, FHlazySTNode<E> rt, boolean del)
+   public FHlazySTNode( E d, FHlazySTNode<E> lft, FHlazySTNode<E> rt, 
+         boolean del)
    {
       lftChild = lft; 
       rtChild = rt;
@@ -286,4 +283,8 @@ class FHlazySTNode<E extends Comparable< ? super E > >
    public int getHeight() { return 0; }
    boolean setHeight(int height) { return true; }
 }
-
+//--------------------------Run-------------------------------------
+// Arggh! I wrote the program three times and still can't get it to perform 
+// correctly. The "k loop test" is diabolical! What core concept (or two) am
+// I missing? Thanks DG
+// 
