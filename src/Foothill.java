@@ -237,12 +237,12 @@ public static void main(String[] args) throws Exception
    System.out.println( "\ntree 1 size: " + searchTree.size() 
       + "  Hard size: " + searchTree.sizeHard() );
 
-//   System.out.println( "\n\nAttempting 100 removals: " );
-//   for (k = 100; k > 0; k--)
-//   {
-//      if (searchTree.remove(k))
-//         System.out.println( "removed " + k );
-//   }
+   System.out.println( "\n\nAttempting 100 removals: " );
+   for (k = 100; k > 0; k--)
+   {
+      if (searchTree.remove(k))
+         System.out.println( "removed " + k );
+   }
    
    System.out.println("\nGARBAGE COLLECTION");
    searchTree.collectGarbage();
@@ -334,10 +334,11 @@ public static void main(String[] args) throws Exception
 
    System.out.println( "\nCollecting Garbage after remove 50. " );
    searchTree.collectGarbage();
-//   searchTree.traverse(intPrinter);
-//   System.out.println( "tree 1 size: " + searchTree.size() 
-//      + "  Hard size: " + searchTree.sizeHard() );  
-//   System.out.println("ASSIGNMENT 4B");
+   searchTree.traverse(intPrinter);
+   searchTree.remove(61);
+   searchTree.collectGarbage();
+   
+   System.out.println("ASSIGNMENT 4B");
 }
 
 }

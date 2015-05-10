@@ -154,8 +154,8 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
       if (root == null)
        return null;
       
-     root = removeHard(root);
-     root.lftChild  = collectGarbage(removeHard(root.lftChild));
+    removeHard(root);
+     root.lftChild = collectGarbage(removeHard(root.lftChild));
      root.rtChild =  collectGarbage(removeHard(root.rtChild));
          return root;
    }
@@ -191,8 +191,10 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
       else if(root.rtChild == null && root.lftChild == null)
       {
          mSizeHard--;
+//         if (root != mRoot)
          root = null;
-         return null;        
+         return root;
+             
       }
     return root;    
    }
