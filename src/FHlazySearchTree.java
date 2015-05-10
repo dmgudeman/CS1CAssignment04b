@@ -170,10 +170,11 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
 
       else if (root.lftChild != null && root.rtChild != null)
       {   
+         root.deleted = findMin(root.rtChild).deleted;
          remove(findMin(root.rtChild).data);
-         mSize++;
          root.data = findMin(root.rtChild).data;
-         root.deleted = false;
+         mSize++;
+        
       }
       else if (root.lftChild == null && root.rtChild != null)
       {
